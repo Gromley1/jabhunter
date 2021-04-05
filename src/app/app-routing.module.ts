@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { HowToComponent } from './howto/howto.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RenameCovidComponent } from './renamecovid/renamecovid.component'
+import { LocationDetailsComponent } from './location-details/location-details.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'howto', component: HowToComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'renamecovid', component: RenameCovidComponent },
+  { path: 'location-details', component: LocationDetailsComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
