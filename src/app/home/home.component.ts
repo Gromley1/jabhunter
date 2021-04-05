@@ -12,10 +12,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
   panelOpenState = false;
-  
+
   locations$: Observable<Location[]>;
 
-  constructor(private googleSheetsDbService: GoogleSheetsDbService, private sanitizer:DomSanitizer) { 
+  constructor(private googleSheetsDbService: GoogleSheetsDbService, private sanitizer: DomSanitizer) {
     this.locations$ = this.googleSheetsDbService.getActive<Location>(
       environment.locations.spreadsheetId,
       environment.locations.worksheetId,
@@ -24,16 +24,20 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  sanitize(url:string){
+  sanitize(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
-  getSanitizedAddressUrl(url:string){
+  getSanitizedAddressUrl(url: string) {
     let addressUrl = `https://www.google.com/maps/place/`
     return this.sanitizer.bypassSecurityTrustUrl(addressUrl);
   }
 
   ngOnInit(): void {
+  }
+
+  public test(location: Location): void {
+    console.log(location);
   }
 
   public executeSelectedChange = (event: any) => {
