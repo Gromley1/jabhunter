@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 import { GoogleSheetsDbService } from 'ng-google-sheets-db';
 import { HttpClientModule } from '@angular/common/http';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MaterialModule } from './material.module';
 import { NgModule } from '@angular/core';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
@@ -27,7 +26,9 @@ import { HowToComponent } from './howto/howto.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RenameCovidComponent } from './renamecovid/renamecovid.component'
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-
+import { CdkDetailRowDirective } from './home/cdk-detail-row.directive';
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
 @NgModule({
   imports: [
     AngularFireAnalyticsModule,
@@ -40,7 +41,7 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     HttpClientModule,
     MaterialModule,
     NgxDocViewerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,
@@ -53,10 +54,12 @@ import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.com
     FooterComponent,
     SidenavListComponent,
     PageNotFoundComponent,
-    RenameCovidComponent
+    RenameCovidComponent,
+    CdkDetailRowDirective
   ],
   exports: [
-
+    CdkTableModule,
+    CdkTreeModule,
   ],
   providers: [GoogleSheetsDbService],
   bootstrap: [AppComponent]
